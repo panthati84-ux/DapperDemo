@@ -3,6 +3,7 @@ using DapperDemo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DapperDemo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260303210104_Add-Migration  InitialCreate")]
+    partial class AddMigrationInitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,35 +50,6 @@ namespace DapperDemo.Migrations
                     b.HasKey("CompanyId");
 
                     b.ToTable("Companies");
-
-                    b.HasData(
-                        new
-                        {
-                            CompanyId = 1,
-                            Address = "1 Acme Way",
-                            City = "Metropolis",
-                            Name = "Acme Corp",
-                            PostalCode = "90001",
-                            State = "CA"
-                        },
-                        new
-                        {
-                            CompanyId = 2,
-                            Address = "42 Contoso Blvd",
-                            City = "Redmond",
-                            Name = "Contoso Ltd",
-                            PostalCode = "98052",
-                            State = "WA"
-                        },
-                        new
-                        {
-                            CompanyId = 3,
-                            Address = "500 Main St",
-                            City = "Seattle",
-                            Name = "Fabrikam",
-                            PostalCode = "98101",
-                            State = "WA"
-                        });
                 });
 #pragma warning restore 612, 618
         }
